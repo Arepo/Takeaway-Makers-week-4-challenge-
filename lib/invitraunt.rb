@@ -1,4 +1,4 @@
-require_relative '../../inject2/lib/my_inject'
+require_relative 'my_inject'
 
 class Invitraunt
 
