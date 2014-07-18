@@ -2,9 +2,9 @@ require 'debugger'
 
 class Array
 
-	def my_inject(accumulator = strip_first_element_of_caller, &block)
+	def my_inject(accumulator = strip_first_element_of_caller)
 		return accumulator if self.length == 0
-		yield accumulator, my_inject(strip_first_element_of_caller, &block)
+		accumulator = my_inject(accumulator, yield(accumulator, strip_first_element_of_caller))
 	end
 
 	def strip_first_element_of_caller
@@ -12,3 +12,5 @@ class Array
 	end
 
 end
+
+

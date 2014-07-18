@@ -1,32 +1,9 @@
-require_relative 'my_inject'
 require 'rubygems'
-require 'twilio-ruby'
+# require 'twilio-ruby'
 
 
 class Invitraunt
-
-	def initialize
-		@full_order = []
-	end
-
-	attr_reader :full_order
-
-	def total_price	
-		corresponding_prices.my_inject { |net_price, item| net_price + item }
-	end
-
-	def corresponding_prices
-		full_order.map {|dish| dishes[dish] }
-	end
-
-	def dishes
-		{"vat burger" => 300_000, "rabbit eggs" => 500_000, "raptor nuggets x6" => 2}
-	end
-
-	def order_dishes(quantity, dish)
-		quantity.times { @full_order << dish }
-	end
-
+	
 	def print_menu
 		puts "\nWelcome to InVitraunt! We have all your favourite animal templates gestated to taste!\n\n"
 		dish_num = 0
@@ -54,20 +31,6 @@ class Invitraunt
 			"raptor nuggets x6"
 		end
 	end
-
-	# def take_order
-	# 	dish = nil
-	# 	until dish == 'end'
-	# 		puts "Please enter the menu number of your item, or 'end', if you've finished your order"
-	# 		dish = gets.chomp.downcase
-	# 		unless dish == 'end'
-	# 			dish = translate(dish)
-	# 			puts "How many #{dish}s would you like to order?"
-	# 			quantity = gets.chomp.to_i
-	# 			order_dishes(quantity, dish)
-	# 		end
-	# 	end
-	# end
 
 end
 
