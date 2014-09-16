@@ -3,6 +3,10 @@ require 'rubygems'
 
 
 class Invitraunt
+
+	# attr_reader :orders
+
+	
 	
 	def print_menu
 		puts "\nWelcome to InVitraunt! We have all your favourite animal templates gestated to taste!\n\n"

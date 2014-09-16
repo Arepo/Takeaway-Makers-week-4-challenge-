@@ -1,13 +1,17 @@
+require_relative 'invitraunt'
+
 class Order
 
 	def initialize(menu = Menu.new, invitraunt = Invitraunt.new)
+		@invitraunt = invitraunt
 		@full_order = []
 		@menu = menu
 	end
 
-	attr_reader :full_order, :menu
+	attr_reader :full_order, :menu, :invitraunt
 
 	def pass
+		invitraunt.add_order
 	end
 
 	def corresponding_prices
@@ -15,7 +19,7 @@ class Order
 	end
 
 	def add_dishes(quantity, dish)
-		quantity.times { @full_order << dish }
+		quantity.times { full_order << dish }
 	end
 
 	def total_price	
