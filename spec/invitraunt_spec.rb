@@ -1,9 +1,7 @@
 require 'invitraunt'
 
-describe 'invitraunt' do 
+describe 'invitraunt' do
 
 	let(:invitraunt) { Invitraunt.new }
-
-
 
 end

@@ -13,7 +13,7 @@ class Order
 		@menu = menu
 	end
 
-	def price_estimate
+	def estimate_price
 		puts "What should the total price come to?"
 		self.estimated_price = gets.chomp.to_f
 	end
@@ -30,8 +30,12 @@ class Order
 		quantity.times { items_in_order << dish }
 	end
 
-	def total_price	
+	def confirmed_price
 		corresponding_prices.inject { |net_price, item| net_price + item }
+	end
+
+	def confirm_price
+		raise "Total price is incorrect" unless confirmed_price == estimated_price
 	end
 
 end
