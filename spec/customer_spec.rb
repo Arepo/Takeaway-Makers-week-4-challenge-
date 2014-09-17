@@ -9,7 +9,7 @@ describe Customer do
 
 	it 'can request items from the menu' do
 		customer.request(2, "vat burger")
-		expect(order.full_order).to eq ["vat burger", "vat burger"]
+		expect(order.items_in_order).to eq ["vat burger", "vat burger"]
 	end
 
 	
