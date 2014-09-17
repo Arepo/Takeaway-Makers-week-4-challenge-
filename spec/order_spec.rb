@@ -15,6 +15,7 @@ describe Order do
 		it 'accepts a user calculation of the price' do
 			expect(order).to receive(:puts).with("What should the total price come to?")
 			expect(order).to receive(:gets).and_return("5")
+			allow(order).to receive(:confirm_price)
 			order.estimate_price
 			expect(order.estimated_price).to eq 5.0
 		end
@@ -29,16 +30,14 @@ describe Order do
 			order.add_dishes(2, "rabbit egg")
 			order.add_dishes(1, "vat burger")
 			allow(order).to receive(:gets).and_return("1300000")
-			order.estimate_price
-			expect{order.confirm_price}.not_to raise_error
+			expect{order.estimate_price}.not_to raise_error
 		end
 
 		it "checks the estimated price against the confirmed price and raises an error if they don't match" do
 			order.add_dishes(2, "rabbit egg")
 			order.add_dishes(1, "vat burger")
 			allow(order).to receive(:gets).and_return("5")
-			order.estimate_price
-			expect{order.confirm_price}.to raise_error("Total price is incorrect")
+			expect{order.estimate_price}.to raise_error("Total price is incorrect")
 		end
 
 	end

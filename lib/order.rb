@@ -16,6 +16,7 @@ class Order
 	def estimate_price
 		puts "What should the total price come to?"
 		self.estimated_price = gets.chomp.to_f
+		confirm_price
 	end
 
 	def pass
