@@ -1,7 +1,9 @@
-takeaway
+Takeaway - Abandon Hope, all Ye who Enter Here
 ========
 
-Level 2
+Most of the custom code is in place for what should be a very basic takeaway model (you can see the specs below - most of the custom code is in place above), but I've been unable to get through Twilio (initially its Captcha was impenetrable; now they've revised it a few weeks on, but every time I try to send a message to a verified number using their own code, it claims the number is unverified). 
+
+### Specs
 
 Write a Takeaway program. 
 Implement the following functionality:
