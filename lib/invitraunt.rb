@@ -4,25 +4,25 @@ require 'twilio-ruby'
 
 class Invitraunt
 
+	def initialize
+		account_sid = 'AC2d5717e98f19a84d6f60955167758ee9'
+		auth_token = '81dbf680c0d83cec9dfa9a8d52426808'
+		@client = Twilio::REST::Client.new account_sid, auth_token
+	end
+
 	def orders
 		@orders ||= []
 	end
-
-	# def print_menu
-	# 	puts "\nWelcome to InVitraunt! We have all your favourite animal templates gestated to taste!\n\n"
-	# 	dish_num = 0
-	# 	dishes.each do | dish, price | dish_num += 1
-	# 		print "#{dish_num}. #{dish.capitalize} #{align_price(price, dish)}\n"
-	# 	end
-	# 	puts ""
-	# end
 
 	def add_order(order)
 		orders << order
 	end
 
-end
+	def process_orders
+		message = @client.account.messages.create(:body => "Thank you! Your order was placed and will be delivered by #{Time.new + 3600}",
+    	:to => "+447852357317",     # Replace with your phone number
+    	:from => "++441291606033")   # Replace with your Twilio number
+		puts message.sid
+	end
 
-# invitraunt = Invitraunt.new
-# invitraunt.print_menu
-# invitraunt.take_order
+end
