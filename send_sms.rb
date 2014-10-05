@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'twilio-ruby'
 
+puts "Enter the SMS message:"
 message_body = gets.chomp
 
 # Get your Account Sid and Auth Token from twilio.com/user/account
@@ -9,6 +10,6 @@ auth_token = '81dbf680c0d83cec9dfa9a8d52426808'
 @client = Twilio::REST::Client.new account_sid, auth_token
  
 message = @client.account.messages.create(:body => message_body,
-    :to => "+447852357317",     # Replace with your phone number
+    :to => "+447543514025",     # Replace with your phone number
     :from => "++441291606033")   # Replace with your Twilio number
 puts message.sid

@@ -13,6 +13,4 @@ describe 'invitraunt' do
 		expect(invitraunt.orders).to include :order
 	end
 
-	it "sends"
-
 end
