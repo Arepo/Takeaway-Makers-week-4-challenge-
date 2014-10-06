@@ -1,7 +1,13 @@
-Takeaway - Abandon Hope, all Ye who Enter Here
+Takeaway program
 ========
 
-Most of the custom code is in place for what should be a very basic takeaway model (you can see the specs below - most of the custom code is in place above), but I've been unable to get through Twilio (initially its Captcha was impenetrable; now they've revised it a few weeks on, but every time I try to send a message to a verified number using their own code, it claims the number is unverified). 
+This was our first interaction with an external API. The original specs of the challenge are given below. Since we didn't want to buy Twilio accounts, the program can only send texts to me.
+
+To use it, require 'lib/customer' in irb. I think in retrospect I did this backwards, but creating a customer instance will also create associated customer.order, customer.menu, and (ick) customer.order.invitraunt instances.
+
+Customer's request items with the #request(integer, string-corresponding-to-menu-items) method one type of dish at a time, then #finalise_order.
+
+The latter will prompt them for the price they expect to pay, and raise an error if it doesn't add up. If it does add up, the only phone number verified for the Twilio account (ie mine) will be sent a text telling them their order will arrive before (an hour from when they order).
 
 ### Specs
 
