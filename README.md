@@ -1,7 +1,7 @@
 Takeaway program
 ========
 
-This was our first interaction with an external API. The original specs of the challenge are given below. Since we didn't want to buy Twilio accounts, the program can only send texts to me.
+This was my first interaction with an external API. The original specs of the challenge are given below. Since we didn't want to buy Twilio accounts, the program can only send texts to me.
 
 To use it, require 'lib/customer' in irb. I think in retrospect I did this backwards, but creating a customer instance will also create associated customer.order, customer.menu, and (ick) customer.order.invitraunt instances.
 
